@@ -5,7 +5,7 @@ import (
 	"github.com/golang-jwt/jwt"
 )
 
-func Decode(rawToken, alg, secret string) (Token, error) {
+func Decode(rawToken, alg, key string) (Token, error) {
 
 	jwtToken, err := jwt.Parse(rawToken, func(token *jwt.Token) (interface{}, error) {
 		if alg != "" {
@@ -14,7 +14,7 @@ func Decode(rawToken, alg, secret string) (Token, error) {
 				return nil, fmt.Errorf("token algorithm %s does not match specified %s", tokenAlg, alg)
 			}
 		}
-		return []byte(secret), nil
+		return []byte(key), nil
 	})
 	return fromJwtToken(jwtToken), err
 }

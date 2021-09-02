@@ -20,4 +20,5 @@ func init() {
 	RootCmd.PersistentFlags().BoolVar(&silentFlag, "silent", false, "suppress logs (warn, debug, ...)")
 	RootCmd.AddCommand(versionCmd)
 	RootCmd.AddCommand(decodeCmd)
+	RootCmd.AddCommand(encodeCmd)
 }
