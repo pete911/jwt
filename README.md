@@ -1,6 +1,10 @@
 # jwt
 jwt cli to decode and encode jwt tokens
 
+## install
+- install [go](https://golang.org/doc/install)
+- run `make install`
+
 ## usage
 
 ### decode
