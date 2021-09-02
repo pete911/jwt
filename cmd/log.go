@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"github.com/rs/zerolog"
@@ -7,9 +7,9 @@ import (
 	"os"
 )
 
-func initLog(flags Flags) {
+func initLog(silent bool) {
 
-	if flags.Silent {
+	if silent {
 		log.Logger = log.Output(ioutil.Discard)
 		return
 	}
