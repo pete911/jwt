@@ -11,6 +11,8 @@ import (
 
 var (
 	indentFlag bool
+	algFlag    string
+	secretFlag string
 
 	decodeCmd = &cobra.Command{
 		Use:   "decode",
@@ -22,6 +24,8 @@ var (
 
 func init() {
 	decodeCmd.Flags().BoolVar(&indentFlag, "indent", false, "indent output")
+	decodeCmd.Flags().StringVar(&algFlag, "alg", "", "algorithm for signature validation, if it is empty, no validation is done")
+	decodeCmd.Flags().StringVar(&secretFlag, "secret", "", "secret to validate token")
 }
 
 func decodeCmdRunE(_ *cobra.Command, args []string) error {
@@ -31,14 +35,14 @@ func decodeCmdRunE(_ *cobra.Command, args []string) error {
 		return errors.New("no input provided")
 	}
 	for _, in := range input {
-		decode(in, indentFlag)
+		decode(in, algFlag, secretFlag, indentFlag)
 	}
 	return nil
 }
 
-func decode(input string, indent bool) {
+func decode(input, alg, secret string, indent bool) {
 
-	token, err := jwt.Decode(input)
+	token, err := jwt.Decode(input, alg, secret)
 	if err != nil {
 		log.Error().Err(err).Msg("decode jwt token")
 	}
