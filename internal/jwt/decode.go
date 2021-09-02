@@ -11,7 +11,7 @@ func Decode(rawToken, alg, secret string) (Token, error) {
 		if alg != "" {
 			tokenAlg := token.Header["alg"]
 			if tokenAlg != alg {
-				return nil, fmt.Errorf("expected %s signing method, got %s", alg, tokenAlg)
+				return nil, fmt.Errorf("token algorithm %s does not match specified %s", tokenAlg, alg)
 			}
 		}
 		return []byte(secret), nil
