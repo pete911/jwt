@@ -1,9 +1,27 @@
 # jwt
 jwt cli to decode and encode jwt tokens
 
-## install
+## download
+
+- [binary](https://github.com/pete911/jwt/releases)
+
+## build/install
+
+### brew
+
+- add tap `brew tap pete911/tap`
+- install `brew install jwt`
+
+### go
+
 - install [go](https://golang.org/doc/install)
-- run `make install`
+- build `make build`
+- install `make install`
+
+## release
+
+Releases are published when the new tag is created e.g.
+`git tag -m "add super cool feature" v1.0.0 && git push --follow-tags`
 
 ## usage
 
