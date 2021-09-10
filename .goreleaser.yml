@@ -8,7 +8,7 @@ builds:
       - amd64
       - arm64
     ldflags:
-      - -X main.Version={{.Version}}
+      - -X github.com/pete911/jwt/cmd.Version=${VERSION}
 checksum:
   name_template: 'checksums.txt'
 dist: releases
