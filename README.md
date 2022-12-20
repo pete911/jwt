@@ -1,4 +1,7 @@
 # jwt
+
+[![pipeline](https://github.com/pete911/jwt/actions/workflows/pipeline.yml/badge.svg)](https://github.com/pete911/jwt/actions/workflows/pipeline.yml)
+
 jwt cli to decode and encode jwt tokens
 
 ## download
