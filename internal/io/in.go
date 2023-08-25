@@ -3,7 +3,7 @@ package io
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 )
 
@@ -16,7 +16,7 @@ func LoadInput(defaultInput []string) ([]string, error) {
 	}
 
 	if stdin {
-		content, err := ioutil.ReadAll(os.Stdin)
+		content, err := io.ReadAll(os.Stdin)
 		if err != nil {
 			return nil, fmt.Errorf("read stdin: %w", err)
 		}
@@ -37,8 +37,8 @@ func isStdin() (bool, error) {
 		return false, fmt.Errorf("stdin stat: %w", err)
 	}
 
-	if info.Mode()&os.ModeCharDevice == os.ModeCharDevice || info.Size() <= 0 {
-		return false, nil
+	if (info.Mode() & os.ModeCharDevice) == 0 {
+		return true, nil
 	}
-	return true, nil
+	return false, nil
 }
