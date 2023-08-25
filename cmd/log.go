@@ -1,17 +1,20 @@
 package cmd
 
 import (
-	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
-	"io/ioutil"
+	"io"
+	"log/slog"
 	"os"
 )
 
 func initLog(silent bool) {
 
 	if silent {
-		log.Logger = log.Output(ioutil.Discard)
+		slog.SetDefault(newLogger(io.Discard))
 		return
 	}
-	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr, TimeFormat: "15:04:05"})
+	slog.SetDefault(newLogger(os.Stderr))
+}
+
+func newLogger(out io.Writer) *slog.Logger {
+	return slog.New(slog.NewTextHandler(out, nil))
 }

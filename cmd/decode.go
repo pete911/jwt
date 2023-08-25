@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/pete911/jwt/internal/io"
 	"github.com/pete911/jwt/internal/jwt"
-	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
+	"log/slog"
 )
 
 var (
@@ -42,7 +42,7 @@ func decode(input, alg, key string, indent bool) {
 
 	token, err := jwt.Decode(input, alg, key)
 	if err != nil {
-		log.Error().Err(err).Msg("decode jwt token")
+		slog.Error(fmt.Sprintf("decode jwt token: %v", err))
 	}
 
 	if indent {

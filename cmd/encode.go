@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/pete911/jwt/internal/io"
 	"github.com/pete911/jwt/internal/jwt"
-	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
+	"log/slog"
 )
 
 var (
@@ -40,7 +40,7 @@ func encode(claims, alg, key string) {
 
 	token, err := jwt.Encode(claims, alg, key)
 	if err != nil {
-		log.Error().Err(err).Msg("encode jwt token")
+		slog.Error(fmt.Sprintf("encode jwt token: %v", err))
 	}
 	fmt.Println(token)
 }
