@@ -23,7 +23,7 @@ release:
     owner: pete911
     name: jwt
 brews:
-  - tap:
+  - repository:
       owner: pete911
       name: homebrew-tap
       token: "{{ .Env.GITHUB_TOKEN }}"
