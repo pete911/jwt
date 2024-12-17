@@ -2,7 +2,7 @@ package jwt
 
 import (
 	"fmt"
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v5"
 )
 
 func Decode(rawToken, alg, key string) (Token, error) {

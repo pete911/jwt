@@ -3,7 +3,7 @@ package jwt
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v5"
 )
 
 type JsonField map[string]interface{}

@@ -3,7 +3,7 @@ package jwt
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v5"
 )
 
 func Encode(claims, alg, key string) (string, error) {
