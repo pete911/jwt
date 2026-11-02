@@ -1,6 +1,6 @@
 module github.com/pete911/jwt
 
-go 1.24
+go 1.27
 
 require (
 	github.com/golang-jwt/jwt/v5 v5.3.1
@@ -9,5 +9,5 @@ require (
 
 require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/spf13/pflag v1.0.9 // indirect
+	github.com/spf13/pflag v1.0.10 // indirect
 )
