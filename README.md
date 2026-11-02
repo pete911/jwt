@@ -8,6 +8,10 @@ jwt cli to decode and encode jwt tokens
 
 - [binary](https://github.com/pete911/jwt/releases)
 
+> [!WARNING]
+> If you installed previous versions (before `v1.0.6`) via brew, you need to reinstall
+> (`brew remove jwt && brew install jwt`) to get updates. The formula was replaced by a cask.
+
 ## build/install
 
 ### brew

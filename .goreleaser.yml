@@ -22,7 +22,7 @@ release:
   github:
     owner: pete911
     name: jwt
-brews:
+homebrew_casks:
   - repository:
       owner: pete911
       name: homebrew-tap
@@ -30,8 +30,9 @@ brews:
     name: jwt
     homepage: "https://github.com/pete911/jwt"
     description: "jwt cli"
-    folder: Formula
-    install: |
-      bin.install "jwt"
-    test: |
-      assert_match /jwt/, shell_output("#{bin}/jwt -h", 0)
+    hooks:
+      post:
+        install_steps: |
+          on_macos do
+            run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{ .StagedPath }}/jwt"]
+          end
